@@ -137,7 +137,8 @@ scrollController.addListener(() {
         //child: ListView.builder(
     //UTILISER UNE AUTRE LISTE QUI VA SEPARER LES DONNES
         child: ListView.separated(
-          separatorBuilder: (contest,index)=>Divider(height:2,color:Colors.amberAccent,),
+          separatorBuilder: (contest,index)=>
+              Divider(height:2,color:Colors.amberAccent,),
           controller:scrollController,
           itemCount:items.length ,
           //itemCount:(data==null)?0:data['items'].length,
@@ -146,8 +147,11 @@ scrollController.addListener(() {
               //quand je clic sur un element
               onTap:(){
                Navigator.push(context,
-                   MaterialPageRoute(builder:
-                       (context)=>GitRepositoryPage(login:items[index]['login'],)));
+                   MaterialPageRoute(
+                       builder:
+                       (context)=>GitRepositoryPage
+                         (login:items[index]['login'],avatarUrl: items[index]['avatar_url'],
+                       )));
               },
               //pour mettre score tt a droite j'envloppe Row dans un autre ROWalors
               title:Row(
@@ -163,9 +167,6 @@ scrollController.addListener(() {
                       //creer un espace entre la photo et login
                       SizedBox(width:20),
                       Text("${items[index]['login']}"),
-
-
-
                     ],
                   ),
                   CircleAvatar(
