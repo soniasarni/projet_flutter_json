@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner:false,
+
       theme:ThemeData(
         primarySwatch: Colors.deepOrange
       ),
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         "/":(context)=>HomePage(),
         "/users":(context)=>UsersPage()
       },
-      initialRoute:"/users",
+
 
       // This trailing comma makes auto-formatting nicer for build methods.
     );

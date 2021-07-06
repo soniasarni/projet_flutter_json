@@ -1,15 +1,11 @@
-import'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import'package:second_project/uiWidgets/drawer.widget.dart';
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
-
+import 'package:flutter/material.dart';
+class My_Drawer extends StatelessWidget {
+  const My_Drawer({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar:AppBar(title:Text('home'),),
-      drawer:Drawer(
-        child:ListView(
+    return Drawer(
+      child:ListView(
         children:[
           DrawerHeader(
             decoration:BoxDecoration(
@@ -48,15 +44,32 @@ class HomePage extends StatelessWidget {
           ),
           Divider(height:2,color:Colors.amberAccent,),
           ListTile(
-            title:Text("users",style:TextStyle(fontSize:22),),
+            title:Text('Offers',style:TextStyle(fontSize:22),),
+            leading:Icon(Icons.assignment_rounded,color:Colors.orange,),
+            trailing:Icon(Icons.arrow_right,color:Colors.orange,),
+            onTap: (){
+              Navigator.of(context).pop();
+              Navigator.pushNamed(context, "/offers");
+            },
+          ),
+          Divider(height:2,color:Colors.amberAccent,),
+          ListTile(
+            title:Text("Login",style:TextStyle(fontSize:22),),
             leading:Icon(Icons.assignment_ind_sharp,color:Colors.orange,),
             trailing:Icon(Icons.arrow_right,color:Colors.orange,),
             onTap: (){
               Navigator.of(context).pop();
-              Navigator.pushNamed(context,"/users");
+              Navigator.pushNamed(context,"/login");
             },
-          )
-
+          ), ListTile(
+            title:Text('Counter',style:TextStyle(fontSize:22),),
+            leading:Icon(Icons.home,color:Colors.orange,),
+            trailing:Icon(Icons.arrow_right,color:Colors.orange,),
+            onTap: (){
+              Navigator.of(context).pop();
+              Navigator.pushNamed(context, "/counter");
+            },
+          ),
           /*une autre methode pour naviguer
            ...(GlobalParams as List).map((item) {
             return ListTile(
@@ -71,12 +84,6 @@ class HomePage extends StatelessWidget {
             })*/
         ],
       ),
-
-
-      ),
-      body:Center(
-        child:Text('Home'),
-      ) ,
     );
   }
 }
